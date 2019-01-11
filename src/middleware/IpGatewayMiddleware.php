@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Log;
  */
 class IpGatewayMiddleware
 {
+    /**
+     * @var
+     */
     protected $ipList;
 
     /**
@@ -26,24 +29,23 @@ class IpGatewayMiddleware
     {
         $prohibitRequest = false;
 
-        if (config('ip-gateway')) {
-            if (config('ip-gateway.enable_package') === true) {
-
-                if (config('ip-gateway.enable_blacklist') === true) {
-                    foreach ($request->getClientIps() as $ip) {
-                        if ($this->grantIpAddress($ip)) {
-                            $prohibitRequest = true;
-                            Log::warning($ip . ' IP address has tried to access.');
-                        }
+        if (config('ip-gateway')
+            && config('ip-gateway.enable_package') === true
+        ) {
+            if (config('ip-gateway.enable_blacklist') === true) { // Its check blacklisted ip-addresses from ip-config file.
+                foreach ($request->getClientIps() as $ip) {
+                    if ($this->grantIpAddress($ip)) {
+                        $prohibitRequest = true;
+                        Log::warning($ip . ' IP address has tried to access.');
                     }
                 }
+            }
 
-                if (config('ip-gateway.enable_blacklist') === false) {
-                    foreach ($request->getClientIps() as $ip) {
-                        if (!$this->grantIpAddress($ip)) {
-                            $prohibitRequest = true;
-                            Log::warning($ip . ' IP address has tried to access.');
-                        }
+            if (config('ip-gateway.enable_blacklist') === false) { // Its check whitelisted ip-addresses from ip-config file.
+                foreach ($request->getClientIps() as $ip) {
+                    if (!$this->grantIpAddress($ip)) {
+                        $prohibitRequest = true;
+                        Log::warning($ip . ' IP address has tried to access.');
                     }
                 }
             }
@@ -63,11 +65,10 @@ class IpGatewayMiddleware
     /**
      * Grant IP address
      *
-     * @param $ip
-     *
+     * @param string $ip
      * @return bool
      */
-    protected function grantIpAddress($ip)
+    protected function grantIpAddress(string $ip) : bool
     {
         $this->ipList = config('ip-gateway.ip-list');
         return in_array($ip, $this->ipList);
