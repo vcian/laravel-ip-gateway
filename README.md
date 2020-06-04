@@ -52,7 +52,7 @@ If you discover any security-related issues, please email vishal@viitorcloud.com
 
 ## Credits
 
-- [Rushikesh Soni](https://github.com/rushikesh-viitorcloud)
+- [Rushikesh Soni](https://github.com/viitorcloud-rushikesh)
 - [Sahile Darji](https://github.com/vc-sahil)
 
 
