@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelIpGateway\Middleware;
+namespace Vcian\LaravelIpGateway\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Log;
@@ -28,7 +28,6 @@ class IpGatewayMiddleware
     public function handle($request, Closure $next)
     {
         $prohibitRequest = false;
-
         if (config('ip-gateway')
             && config('ip-gateway.enable_package') === true
         ) {
