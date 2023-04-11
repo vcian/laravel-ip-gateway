@@ -17,13 +17,13 @@ Laravel 5.4 >
 You can install the package via composer:
 
 ```bash
-composer require viitorcloud/laravel-ip-gateway
+composer require vcian/laravel-ip-gateway
 ```
 
 After installation, You need to publish the config file for this package. This will add the file `config/ip-gateway.php`, where you can configure this package.
 
 ```bash
-php artisan vendor:publish --provider="LaravelIpGateway\IpGatewayProvider"
+php artisan vendor:publish
 ```
 
 ### Config Usage

@@ -1,9 +1,9 @@
 <?php
 
-namespace LaravelIpGateway;
+namespace Vcian\LaravelIpGateway;
 
 use Illuminate\Support\ServiceProvider;
-use LaravelIpGateway\Middleware\IpGatewayMiddleware;
+use Vcian\LaravelIpGateway\Middleware\IpGatewayMiddleware;
 
 /**
  * Class IpGatewayProvider
@@ -22,7 +22,7 @@ class IpGatewayProvider extends ServiceProvider
         $router = $this->app['router'];
 
         if (config('ip-gateway')) {
-            foreach (config('ip-gateway.middleware') as $middlewareName) {
+            foreach (config('ip-gateway.Middleware') as $middlewareName) {
                 $router->pushMiddlewareToGroup($middlewareName, IpGatewayMiddleware::class);
             }
         }

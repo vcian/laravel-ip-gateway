@@ -19,14 +19,14 @@ return [
     'enable_blacklist' => true,
 
     /*
-     * Enable IP detection for middleware
+     * Enable IP detection for Middleware
      *
-     * You can use middleware name ('auth')
+     * You can use Middleware name like 'auth','web','api'
      *
      * @var array
      */
-    'middleware' => [
-
+    'Middleware' => [
+        'web' // Default Middleware
     ],
 
     /*
