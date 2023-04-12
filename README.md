@@ -4,7 +4,7 @@
 
 ## Requirements
 
-Laravel 5.4 > 
+PHP ^8.0 
 
 ## Features
 
@@ -26,7 +26,7 @@ After installation, You need to publish the config file for this package. This w
 php artisan vendor:publish
 ```
 
-### Config Usage
+### Config Usage (`ip-gateway.php`)
 
 * `enable_package` is used for enable/disable access protection.
 
@@ -38,6 +38,7 @@ php artisan vendor:publish
 
 *  You can define all your whitelist or blacklist IP addresses inside `ip-list`.
 
+*  If you want to add IP gateway middleware in you custom middleware group then just define your custom middleware group inside `middleware`
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
