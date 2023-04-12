@@ -51,12 +51,6 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 If you discover any security-related issues, please email vishal@viitorcloud.com or ruchit.patel@viitor.cloud instead of using the issue tracker.
 
-## Credits
-
-- [Rushikesh Soni](https://github.com/viitorcloud-rushikesh)
-- [Sahile Darji](https://github.com/vc-sahil)
-
-
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
