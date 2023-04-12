@@ -25,8 +25,8 @@ return [
      *
      * @var array
      */
-    'Middleware' => [
-        'web' // Default Middleware
+    'middleware' => [
+        'web' // Default Middleware Group
     ],
 
     /*
@@ -42,7 +42,7 @@ return [
      * Whitelisted and blacklisted IP addresses
      *
      *  Examples of IP address
-     *      '127.0.0.0',
+     *      '127.0.0.1',
      *
      * @type array
      */
