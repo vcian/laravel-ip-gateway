@@ -1,6 +1,7 @@
 # IP gateway for laravel
 
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=for-the-badge)](LICENSE.md)
+[![Total Downloads](https://img.shields.io/packagist/dt/vcian/laravel-ip-gateway?style=for-the-badge)](https://packagist.org/packages/vcian/laravel-ip-gateway)
 
 ## Requirements
 
