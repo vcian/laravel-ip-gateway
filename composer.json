@@ -1,6 +1,6 @@
 {
   "name": "vcian/laravel-ip-gateway",
-  "description": "Blacklist or Whitelist IP for routes",
+  "description": "Blacklist or Whitelist IP of application routes.",
   "keywords": [
     "ip",
     "gateway",
