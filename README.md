@@ -3,15 +3,16 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=for-the-badge)](LICENSE.md)
 [![Total Downloads](https://img.shields.io/packagist/dt/vcian/laravel-ip-gateway?style=for-the-badge)](https://packagist.org/packages/vcian/laravel-ip-gateway)
 
-## Requirements
-
-PHP ^8.0 
-
 ## Features
 
-*  The Laravel Ip gateway package helps you to blacklist or whitelist IP to prevent unauthorized access.
+*  The Laravel Ip gateway package helps you to blacklist or whitelist IP to prevent unauthorized access to your application.
 
-*  Since blacklists deny access to specific entities, they are best used when a limited number of items need to be denied access. When most entities need to be denied access, a whitelist approach is more efficient
+*  Since blacklists deny access to specific entities, they are best used when a limited number of items need to be denied access.
+When most entities need to be denied access, a whitelist approach is more efficient.
+
+## Requirements
+
+PHP ^8.0
 
 ## Installation
 
@@ -50,7 +51,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 
-If you discover any security-related issues, please email vishal@viitorcloud.com or ruchit.patel@viitor.cloud instead of using the issue tracker.
+If you discover any security-related issues, please email ruchit.patel@viitor.cloud instead of using the issue tracker.
 
 ## License
 
