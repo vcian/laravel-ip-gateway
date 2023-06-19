@@ -28,37 +28,27 @@ class IpGatewayMiddleware
     public function handle($request, Closure $next)
     {
         $prohibitRequest = false;
-        if (config('ip-gateway')
-            && config('ip-gateway.enable_package') === true
-        ) {
-            if (config('ip-gateway.enable_blacklist') === true) { // Its check blacklisted ip-addresses from ip-config file.
-                foreach ($request->getClientIps() as $ip) {
-                    if ($this->grantIpAddress($ip)) {
-                        $prohibitRequest = true;
-                        Log::warning($ip . ' IP address has tried to access.');
-                    }
-                }
-            }
+        $getClientIps = $request->getClientIps();
+        $enableBlacklist = config('ip-gateway.enable_blacklist') === true;
+        $redirectRoute = config('ip-gateway.redirect_route_to');
 
-            if (config('ip-gateway.enable_blacklist') === false) { // Its check whitelisted ip-addresses from ip-config file.
-                foreach ($request->getClientIps() as $ip) {
-                    if (!$this->grantIpAddress($ip)) {
-                        $prohibitRequest = true;
-                        Log::warning($ip . ' IP address has tried to access.');
-                    }
+        if (config('ip-gateway') && config('ip-gateway.enable_package') === true) {
+            foreach ($getClientIps as $ip) {
+                if ($enableBlacklist && $this->grantIpAddress($ip)) {
+                    $prohibitRequest = true;
+                    Log::warning($ip . ' IP address has tried to access.');
+                } elseif (!$enableBlacklist && !$this->grantIpAddress($ip)) {
+                    $prohibitRequest = true;
+                    Log::warning($ip . ' IP address has tried to access.');
                 }
             }
         }
 
-        if ($prohibitRequest === false) {
-            return $next($request);
-        } else {
-            if (config('ip-gateway.redirect_route_to') != '') {
-                return redirect(config('ip-gateway.redirect_route_to'));
-            } else {
-                return redirect('/404');
-            }
+        if ($prohibitRequest) {
+            return redirect($redirectRoute != '' ? $redirectRoute : '/404');
         }
+
+        return $next($request);
     }
 
     /**
