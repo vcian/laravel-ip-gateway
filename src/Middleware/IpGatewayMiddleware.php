@@ -51,8 +51,8 @@ class IpGatewayMiddleware
 
             return $next($request);
 
-        } catch (\Throwable $th) {
-            Log::warning('Problem occurred while handle an incoming request '.$th->getMessage());
+        } catch (\Exception $ex) {
+            Log::error('Problem occurred while handle an incoming request '.$ex->getMessage());
         }
 
     }
