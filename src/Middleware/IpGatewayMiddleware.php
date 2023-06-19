@@ -34,10 +34,10 @@ class IpGatewayMiddleware
 
         if (config('ip-gateway') && config('ip-gateway.enable_package') === true) {
             foreach ($getClientIps as $ip) {
-                if ($enableBlacklist && $this->grantIpAddress($ip)) {
+                if ($enableBlacklist && $this->grantIpAddress($ip)) { // Its check blacklisted ip-addresses from ip-config file.
                     $prohibitRequest = true;
                     Log::warning($ip . ' IP address has tried to access.');
-                } elseif (!$enableBlacklist && !$this->grantIpAddress($ip)) {
+                } elseif (!$enableBlacklist && !$this->grantIpAddress($ip)) { // Its check whitelisted ip-addresses from ip-config file.
                     $prohibitRequest = true;
                     Log::warning($ip . ' IP address has tried to access.');
                 }
