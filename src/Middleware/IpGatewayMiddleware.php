@@ -20,9 +20,8 @@ class IpGatewayMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \Closure $next
-     *
+     * @param $request
+     * @param Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
@@ -33,7 +32,7 @@ class IpGatewayMiddleware
             $enableBlacklist = config('ip-gateway.enable_blacklist') === true;
             $redirectRoute = config('ip-gateway.redirect_route_to');
 
-            if (config('ip-gateway') && config('ip-gateway.enable_package') === true) {
+            if (config('ip-gateway.enable_package') === true) {  // Check if package status is enable.
                 foreach ($getClientIps as $ip) {
                     if ($enableBlacklist && $this->grantIpAddress($ip)) { // Its check blacklisted ip-addresses from ip-config file.
                         $prohibitRequest = true;
@@ -43,18 +42,18 @@ class IpGatewayMiddleware
                         Log::warning($ip . ' IP address has tried to access.');
                     }
                 }
-            }
 
-            if ($prohibitRequest) {
-                return redirect($redirectRoute != '' ? $redirectRoute : '/404');
+                if ($prohibitRequest) {
+                    return redirect($redirectRoute != '' ? $redirectRoute : '/404');
+                }
             }
 
             return $next($request);
 
         } catch (\Exception $ex) {
             Log::error('Problem occurred while handle an incoming request '.$ex->getMessage());
+            return redirect('/404');
         }
-
     }
 
     /**
@@ -65,7 +64,6 @@ class IpGatewayMiddleware
      */
     protected function grantIpAddress(string $ip) : bool
     {
-        $this->ipList = config('ip-gateway.ip-list');
-        return in_array($ip, $this->ipList);
+        return in_array($ip, config('ip-gateway.ip-list'));
     }
 }

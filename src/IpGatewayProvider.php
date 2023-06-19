@@ -20,11 +20,8 @@ class IpGatewayProvider extends ServiceProvider
     public function boot()
     {
         $router = $this->app['router'];
-
-        if (config('ip-gateway')) {
-            foreach (config('ip-gateway.middleware') as $middlewareName) {
-                $router->pushMiddlewareToGroup($middlewareName, IpGatewayMiddleware::class);
-            }
+        foreach (config('ip-gateway.middleware') as $middlewareName) {
+            $router->pushMiddlewareToGroup($middlewareName, IpGatewayMiddleware::class);
         }
     }
 
@@ -50,6 +47,5 @@ class IpGatewayProvider extends ServiceProvider
         foreach ($publishableFiles as $storedPath => $publishPath) {
             $this->publishes([$storedPath => $publishPath]);
         }
-
     }
 }
