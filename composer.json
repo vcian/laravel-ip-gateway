@@ -1,40 +1,39 @@
 {
-  "name": "vcian/laravel-ip-gateway",
-  "description": "Blacklist or Whitelist IP of application routes.",
-  "keywords": [
-    "ip",
-    "gateway",
-    "whitelist",
-    "blacklist",
-    "laravel",
-    "firewall",
-    "prevent",
-    "access",
-    "authentication",
-    "denied"
-  ],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Vcian - Viitorcloud",
-      "email": "administrator@viitorcloud.com",
-      "role": "Creator"
-    }
-  ],
-  "require": {
-    "php": "^8.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Vcian\\LaravelIpGateway\\": "src/"
-    }
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Vcian\\LaravelIpGateway\\IpGatewayProvider"
-      ]
-    }
-  },
-  "minimum-stability": "dev"
+    "name": "vcian/laravel-ip-gateway",
+    "description": "Blacklist or Whitelist IP of your application routes.",
+    "keywords": [
+        "ip",
+        "ipgateway",
+        "whitelist",
+        "blacklist",
+        "laravel",
+        "IP Filtering",
+        "IP Restriction Laravel",
+        "Laravel IP Security"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vcian - Viitorcloud",
+            "email": "ruchit.patel@viitor.cloud",
+            "role": "Creator"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vcian\\LaravelIpGateway\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vcian\\LaravelIpGateway\\IpGatewayProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
