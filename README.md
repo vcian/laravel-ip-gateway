@@ -1,32 +1,34 @@
 # IP gateway for laravel
 
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-
-## Requirements
-
-Laravel 5.4 > 
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=for-the-badge)](LICENSE.md)
+[![Total Downloads](https://img.shields.io/packagist/dt/vcian/laravel-ip-gateway?style=for-the-badge)](https://packagist.org/packages/vcian/laravel-ip-gateway)
 
 ## Features
 
-*  The Laravel Ip gateway package helps you to blacklist or whitelist IP to prevent unauthorized access.
+*  The Laravel Ip gateway package helps you to blacklist or whitelist IP to prevent unauthorized access to your application.
 
-*  Since blacklists deny access to specific entities, they are best used when a limited number of items need to be denied access. When most entities need to be denied access, a whitelist approach is more efficient
+*  Since blacklists deny access to specific entities, they are best used when a limited number of items need to be denied access.
+When most entities need to be denied access, a whitelist approach is more efficient.
+
+## Requirements
+
+PHP ^8.0
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require viitorcloud/laravel-ip-gateway
+composer require vcian/laravel-ip-gateway
 ```
 
 After installation, You need to publish the config file for this package. This will add the file `config/ip-gateway.php`, where you can configure this package.
 
 ```bash
-php artisan vendor:publish --provider="LaravelIpGateway\IpGatewayProvider"
+php artisan vendor:publish
 ```
 
-### Config Usage
+### Config Usage (`ip-gateway.php`)
 
 * `enable_package` is used for enable/disable access protection.
 
@@ -38,6 +40,7 @@ php artisan vendor:publish --provider="LaravelIpGateway\IpGatewayProvider"
 
 *  You can define all your whitelist or blacklist IP addresses inside `ip-list`.
 
+*  If you want to add IP gateway middleware in you custom middleware group then just define your custom middleware group inside `middleware`
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
@@ -48,11 +51,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 
-If you discover any security-related issues, please email vishal@viitorcloud.com or ruchit.patel@viitor.cloud instead of using the issue tracker.
-
-## Credits
-
-- [All Contributors](../../contributors)
+If you discover any security-related issues, please email ruchit.patel@viitor.cloud instead of using the issue tracker.
 
 ## License
 

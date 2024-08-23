@@ -19,14 +19,14 @@ return [
     'enable_blacklist' => true,
 
     /*
-     * Enable IP detection for middleware
+     * Enable IP detection for Middleware
      *
-     * You can use middleware name ('auth')
+     * You can use Middleware name like 'auth','web','api'
      *
      * @var array
      */
     'middleware' => [
-
+        'web' // Default Middleware Group
     ],
 
     /*
@@ -42,7 +42,7 @@ return [
      * Whitelisted and blacklisted IP addresses
      *
      *  Examples of IP address
-     *      '127.0.0.0',
+     *      '127.0.0.1',
      *
      * @type array
      */
